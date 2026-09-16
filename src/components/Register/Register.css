@@ -1,0 +1,221 @@
+.register {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  box-sizing: border-box;
+  padding-top: 45px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+}
+
+.register__header {
+  width: 880px;
+  height: 74px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid #545454;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.register__logo {
+  width: 173px;
+  height: 33px;
+  object-fit: contain;
+  opacity: 1;
+}
+
+.register__login {
+  margin-top: 6px;
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.register__login:hover {
+  opacity: 0.7;
+}
+
+.register__form {
+  width: 358px;
+  margin: 60px auto 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.register__title {
+  width: 358px;
+  margin: 0 0 50px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  text-align: center;
+
+  color: #fff;
+}
+
+.register__input {
+  width: 358px;
+  height: 27px;
+  margin: 0 0 30px;
+  padding: 0 0 7px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.register__input::placeholder {
+  color: #ccc;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.register__input:not(:placeholder-shown) {
+  color: #fff;
+  font-weight: 500;
+}
+
+.register__input:focus {
+  border-bottom-color: #fff;
+}
+
+.register__button {
+  width: 358px;
+  height: 50px;
+  margin-top: 186px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.register__button:hover {
+  opacity: 0.8;
+}
+
+.register__signin {
+  width: 358px;
+  height: 17px;
+  margin: 15px 0 0;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+}
+
+.register__signin a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.register__signin a:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 500px) {
+  .register {
+    min-height: 568px;
+    padding: 28px 30px 0;
+    position: relative;
+  }
+
+  .register__header {
+    position: absolute;
+    width: 320px;
+    height: 56px;
+    left: 0;
+    top: 28px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    display: block;
+  }
+
+  .register__logo {
+    position: absolute;
+    width: 126px;
+    height: 24px;
+    left: 30px;
+    top: 0;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .register__login {
+    position: absolute;
+    width: 80px;
+    height: 22px;
+    left: 210px;
+    top: 6px;
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    text-align: right;
+    white-space: nowrap;
+    color: #fff;
+  }
+
+  .register__form {
+    width: 260px;
+    margin: 96px auto 0;
+  }
+
+  .register__title {
+    width: 260px;
+    height: 24px;
+    margin: 0 0 40px;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .register__input {
+    width: 260px;
+    height: 27px;
+    margin: 0 0 30px;
+    padding: 0 0 7px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .register__button {
+    width: 260px;
+    height: 46px;
+    margin-top: 143px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .register__signin {
+    width: 260px;
+    height: 15px;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

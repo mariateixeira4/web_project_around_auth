@@ -202,6 +202,11 @@
     height: 16px;
   }
 
+  .profile__edit-button:hover,
+  .profile__add-button:hover {
+    opacity: 0.6;
+  }
+
   .profile__name,
   .profile__text {
     max-width: 260px;

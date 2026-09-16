@@ -1,0 +1,155 @@
+.info-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.info-tooltip_opened {
+  display: flex;
+}
+
+.info-tooltip__container {
+  position: relative;
+  width: 430px;
+  height: 330px;
+  box-sizing: border-box;
+  padding: 60px 36px 36px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-tooltip__close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -45px;
+  right: -25px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.info-tooltip__close::before,
+.info-tooltip__close::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.info-tooltip__close::before {
+  transform: rotate(45deg);
+}
+
+.info-tooltip__close::after {
+  transform: rotate(-45deg);
+}
+
+.info-tooltip__icon {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  margin: 0 0 32px;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.info-tooltip__icon_success {
+  border: 4px solid #000;
+}
+
+.info-tooltip__icon_success::after {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 28px;
+  left: 50%;
+  top: 50%;
+  border-left: 8px solid #000;
+  border-bottom: 8px solid #000;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center;
+}
+.info-tooltip__icon_error {
+  border: 4px solid #fd0707;
+}
+
+.info-tooltip__icon_error::before,
+.info-tooltip__icon_error::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  background-color: #fd0707;
+  transform-origin: center;
+}
+
+.info-tooltip__icon_error::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.info-tooltip__icon_error::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.info-tooltip__message {
+  width: 358px;
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (max-width: 600px) {
+  .info-tooltip__container {
+    width: calc(100% - 40px);
+    max-width: 430px;
+    height: 330px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .info-tooltip__message {
+    width: 100%;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .info-tooltip__close {
+    width: 30px;
+    height: 30px;
+    top: -75px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .info-tooltip__close::before,
+  .info-tooltip__close::after {
+    top: 14px;
+    left: 0;
+    width: 30px;
+    height: 3px;
+  }
+}

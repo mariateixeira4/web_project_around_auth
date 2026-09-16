@@ -2,7 +2,6 @@ import { useContext } from "react";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-import line from "../../images/Line.png";
 import avatar from "../../images/Avatar.png";
 import editIcon from "../../images/EditButton.png";
 
@@ -39,8 +38,6 @@ function Main({
 
   return (
     <>
-      <img src={line} alt="" className="header__line-image" />
-
       <main className="content">
         <section className="profile">
           <div className="profile__container">

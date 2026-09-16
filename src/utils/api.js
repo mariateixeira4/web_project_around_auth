@@ -5,24 +5,27 @@ class Api {
   }
 
   _request(url, options) {
-    return fetch(url, options).then((res) => {
+    return fetch(url, {
+      ...options,
+      headers: this._headers,
+    }).then((res) => {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(`Error: ${res.status}`);
+
+      return res.text().then((text) => {
+        console.error("ERRO DA API:", res.status, text);
+        return Promise.reject(`Error: ${res.status} - ${text}`);
+      });
     });
   }
 
   getInitialCards() {
-    return this._request(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    });
+    return this._request(`${this._baseUrl}/cards`, {});
   }
 
   getUserInfo() {
-    return this._request(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    });
+    return this._request(`${this._baseUrl}/users/me`, {});
   }
 
   getAppData() {
@@ -36,7 +39,6 @@ class Api {
   updateProfile(data) {
     return this._request(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -47,7 +49,6 @@ class Api {
   addCard(data) {
     return this._request(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link,
@@ -58,21 +59,18 @@ class Api {
   deleteCard(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
     });
   }
 
   likeCard(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
     });
   }
 
   unlikeCard(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
     });
   }
 
@@ -83,7 +81,6 @@ class Api {
   updateAvatar(data) {
     return this._request(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
       }),

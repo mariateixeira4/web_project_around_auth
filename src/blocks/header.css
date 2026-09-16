@@ -1,58 +1,265 @@
-* {
-  box-sizing: border-box;
-}
-
 .header {
-  display: flex;
-  max-width: 880px;
+  width: 880px;
   height: 74px;
-  border: 1px solid;
-  margin: 0 auto;
-  padding-bottom: 41px;
+  margin: 45px auto 0;
+  padding: 0 0 20px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #fff;
 }
 
 .header__logo {
-  justify-content: flex-start;
   width: 173px;
   height: 33px;
-  margin-top: 45px;
+  object-fit: contain;
 }
 
-.header__line-image {
-  display: block;
-  width: 880px;
-  height: 1px;
-  opacity: 0.7;
-  margin-top: 41px;
-  margin-left: auto;
-  margin-right: auto;
+.header__user,
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 6px;
+}
+
+.header__email {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.header__logout,
+.header__link {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.header__logout {
+  color: #a9a9a9;
   border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 544px) {
+.header__link {
+  color: #fff;
+}
+
+.header__logout:hover,
+.header__link:hover {
+  opacity: 0.6;
+}
+
+.header__mobile-account {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 6px;
+  order: 2;
+}
+
+.header__main {
+  display: flex;
+  align-items: flex-start;
+  order: 1;
+}
+
+.header__menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 920px) {
   .header {
-    width: 100%;
-    max-width: 320px;
-    padding-top: 28px;
-    padding-bottom: 0;
-    margin: 0 auto;
+    width: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header__mobile-account {
+    display: none;
+  }
+
+  .header__main {
+    display: block;
+    order: initial;
+  }
+
+  .header {
+    position: relative;
+    width: 320px;
+    height: 56px;
+    margin: 28px auto 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    display: block;
     box-sizing: border-box;
   }
 
-  .header__logo {
-    width: 126px;
-    height: 24px;
-    margin: 0 0 0 27px;
+  .header__main {
+    position: absolute;
     display: block;
+    width: 320px;
+    height: 56px;
+    left: 0;
+    top: 0;
   }
 
-  .header__line-image {
-    width: 100%;
-    max-width: 320px;
-    height: 1px;
-    margin-top: 24px;
-    margin-left: 0;
-    margin-right: 0;
+  .header__logo {
+    position: absolute;
+    width: 126px;
+    height: 24px;
+    left: 30px;
+    top: 0;
+  }
+
+  .header__menu-button {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    left: 266px;
+    top: 6px;
+    padding: 0;
     border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .header__menu-button::before,
+  .header__menu-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+  }
+
+  .header__menu-button::before {
+    top: 2px;
+    box-shadow:
+      0 9px 0 #fff,
+      0 18px 0 #fff;
+  }
+
+  /* MENU ABERTO */
+
+  .header_menu-open {
+    height: 225px;
+    margin-top: 0;
+    border-bottom: none;
+  }
+
+  /* Área do e-mail + Sair */
+
+  .header_menu-open .header__mobile-account {
+    position: absolute;
+    display: block;
+
+    width: 320px;
+    height: 142px;
+
+    left: 0;
+    top: 0;
+
+    padding: 0;
+    box-sizing: border-box;
+
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  }
+
+  .header_menu-open .header__email {
+    position: absolute;
+
+    width: 142px;
+    height: 22px;
+
+    left: 89px;
+    top: 40px;
+
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header_menu-open .header__logout {
+    position: absolute;
+
+    width: 33px;
+    height: 22px;
+
+    left: 143px;
+    top: 74px;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+
+    text-align: right;
+    color: #a9a9a9;
+  }
+  /* Segundo header: logo + X */
+
+  .header_menu-open .header__main {
+    position: absolute;
+
+    top: 142px;
+    left: 0;
+
+    width: 320px;
+    height: 83px;
+
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  }
+
+  .header_menu-open .header__logo {
+    left: 30px;
+    top: 27px;
+  }
+
+  .header_menu-open .header__menu-button {
+    left: 257px;
+    top: 27px;
+  }
+
+  .header__menu-button_close::before,
+  .header__menu-button_close::after {
+    top: 10px;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    box-shadow: none;
+  }
+
+  .header__menu-button_close::before {
+    transform: rotate(45deg);
+  }
+
+  .header__menu-button_close::after {
+    transform: rotate(-45deg);
+  }
+
+  .header__menu-button:hover::before,
+  .header__menu-button:hover::after {
+    opacity: 0.6;
   }
 }
