@@ -1,16 +1,42 @@
-# React + Vite
+# Tripleten web_project_around_auth
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+Aplicação web desenvolvida com React que permite visualizar e interagir com cartões de locais. O projeto também possui cadastro, login e autenticação de usuários.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologias utilizadas
 
-## React Compiler
+- React
+- JavaScript
+- JSX
+- CSS
+- React Router
+- Vite
+- REST API
+- JWT
+- LocalStorage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Cadastro de usuários
+- Login e logout
+- Rotas protegidas
+- Edição de perfil e avatar
+- Adição e exclusão de cartões
+- Curtidas nos cartões
+- Visualização de imagens em pop-ups
+- Layout responsivo para desktop e mobile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Capturas de tela
+
+Página de login:
+
+![Página de login](./src/images/login.png)
+
+Página principal:
+
+![Página principal](./src/images/main.png)
+
+## GitHub Pages
+
+[Visualizar o projeto](https://mariateixeira4.github.io/web_project_around_auth/)
