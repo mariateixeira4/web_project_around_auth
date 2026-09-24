@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
-import "../../index.css";
 import "./App.css";
 
 import { useState, useEffect } from "react";
@@ -22,6 +21,8 @@ function App() {
   const navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
 
@@ -39,6 +40,7 @@ function App() {
     const token = localStorage.getItem("jwt");
 
     if (!token) {
+      setIsCheckingAuth(false);
       return;
     }
 
@@ -61,6 +63,9 @@ function App() {
         console.error(err);
         localStorage.removeItem("jwt");
         setIsLoggedIn(false);
+      })
+      .finally(() => {
+        setIsCheckingAuth(false);
       });
   }, []);
 
@@ -197,7 +202,10 @@ function App() {
         <Route
           path="/"
           element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <ProtectedRoute
+              isLoggedIn={isLoggedIn}
+              isCheckingAuth={isCheckingAuth}
+            >
               <CurrentUserContext.Provider
                 value={{
                   currentUser,

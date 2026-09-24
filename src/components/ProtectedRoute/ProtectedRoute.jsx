@@ -1,11 +1,11 @@
 import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({ isLoggedIn, children }) {
-  if (!isLoggedIn) {
-    return <Navigate to="/signin" replace />;
+function ProtectedRoute({ isLoggedIn, isCheckingAuth, children }) {
+  if (isCheckingAuth) {
+    return null;
   }
 
-  return children;
+  return isLoggedIn ? children : <Navigate to="/signin" replace />;
 }
 
 export default ProtectedRoute;
